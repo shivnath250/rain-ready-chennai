@@ -69,6 +69,14 @@ async function icon(Comp, color) {
   };
   const card = (slide, x, y, w, h, name, fill = C.background2) =>
     slide.addShape(pres.shapes.ROUNDED_RECTANGLE, { x, y, w, h, rectRadius: 0.08, fill: { color: fill }, line: { color: fill }, objectName: name });
+  const linkButton = (slide, x, y, w, h, fill, txtColor, name, size = 14) => {
+    slide.addShape(pres.shapes.ROUNDED_RECTANGLE, { x, y, w, h, rectRadius: 0.1, fill: { color: fill }, line: { color: fill },
+      hyperlink: { url: PAGE, tooltip: "Open the interactive planner" }, objectName: name + " button" });
+    slide.addText([
+      { text: "\u25B6  OPEN THE INTERACTIVE PLANNER", options: { bold: true, fontSize: size, color: txtColor, breakLine: true } },
+      { text: PAGE.replace("https://", ""), options: { fontSize: size - 2, color: txtColor, underline: { style: "sng" }, hyperlink: { url: PAGE } } },
+    ], { x: x + 0.2, y, w: w - 0.4, h, margin: 0, valign: "middle", isTextBox: true, objectName: name + " text" });
+  };
   const chartText = { catAxisLabelFontFace: "+mn-lt", valAxisLabelFontFace: "+mn-lt", dataLabelFontFace: "+mn-lt", legendFontFace: "+mn-lt", titleFontFace: "+mn-lt",
     catAxisLabelFontSize: 11, valAxisLabelFontSize: 10, dataLabelFontSize: 10, legendFontSize: 11, catAxisLabelColor: HEX.ink, valAxisLabelColor: HEX.grey };
 
@@ -80,9 +88,9 @@ async function icon(Comp, color) {
   await circleIcon(s, md.MdWaterDrop, 0.6, 0.45, 0.7, C.accent1, "Drop");
   s.addText([
     { text: "Shivnath Rajendra Gujar  |  FT271017  |  PGPM 2026-27, Great Lakes Institute of Management", options: { breakLine: true } },
-    { text: "Decision Science: Creative AI Project", options: { breakLine: true } },
-    { text: "Live page: " + PAGE, options: { hyperlink: { url: PAGE }, color: "8FD3DA" } },
-  ], { x: 0.6, y: 4.2, w: 8.8, h: 0.9, fontSize: 12, color: "CADCFC", margin: 0, isTextBox: true, valign: "top", paraSpaceAfter: 3, objectName: "Byline" });
+    { text: "Decision Science: Creative AI Project" },
+  ], { x: 0.6, y: 4.55, w: 5.0, h: 0.6, fontSize: 12, color: "CADCFC", margin: 0, isTextBox: true, valign: "top", paraSpaceAfter: 3, objectName: "Byline" });
+  linkButton(s, 5.75, 4.3, 3.75, 0.85, "FFD24A", HEX.navy, "Title link", 13);
   s.addNotes("Every monsoon, low-lying Chennai floods. This project builds four linked models to help a relief control room decide what to stock, how to route it, and how to evacuate.");
 
   // ---------- 2. Problem ----------
@@ -261,13 +269,11 @@ async function icon(Comp, color) {
     { text: "Change rain level, road flooding, demand and penalty; flows and shortages update instantly", options: { bullet: true, breakLine: true } },
     { text: "Click a road on the evacuation map to place the pump", options: { bullet: true, breakLine: true } },
     { text: "Same optimum as the Python and Excel models", options: { bullet: true } },
-  ], { x: 6.4, y: 1.2, w: 3.1, h: 2.3, fontSize: 13, color: C.text1, margin: 0, valign: "top", paraSpaceAfter: 8, isTextBox: true, objectName: "Page bullets" });
-  s.addText([
-    { text: "Live page", options: { bold: true, breakLine: true, color: HEX.navy } },
-    { text: PAGE.replace("https://", ""), options: { hyperlink: { url: PAGE }, color: HEX.teal, breakLine: true } },
-    { text: "Files (Excel, Python, report)", options: { bold: true, breakLine: true, color: HEX.navy } },
-    { text: REPO.replace("https://", ""), options: { hyperlink: { url: REPO }, color: HEX.teal } },
-  ], { x: 6.4, y: 3.55, w: 3.1, h: 1.5, fontSize: 10.5, margin: 0, valign: "top", paraSpaceAfter: 3, isTextBox: true, objectName: "Links" });
+  ], { x: 6.4, y: 1.2, w: 3.1, h: 2.1, fontSize: 13, color: C.text1, margin: 0, valign: "top", paraSpaceAfter: 8, isTextBox: true, objectName: "Page bullets" });
+  linkButton(s, 6.4, 3.45, 3.1, 0.95, "FFD24A", HEX.navy, "Page link", 12);
+  s.addText([{ text: "All files (report, Excel, Python, slides): ", options: { bold: true, color: HEX.navy } },
+    { text: REPO.replace("https://", ""), options: { hyperlink: { url: REPO }, color: HEX.teal } }],
+    { x: 6.4, y: 4.5, w: 3.1, h: 0.6, fontSize: 10.5, margin: 0, valign: "top", isTextBox: true, objectName: "Repo link" });
 
   // ---------- 11. Recommendations ----------
   pres.addSection({ title: "Close" });
@@ -288,6 +294,7 @@ async function icon(Comp, color) {
     s.addText(r[0], { x: x + 0.7, y, w: 3.7, h: 0.4, fontSize: 17, bold: true, color: C.background1, margin: 0, isTextBox: true, objectName: "Rec title " + (i + 1) });
     s.addText(r[1], { x: x + 0.7, y: y + 0.42, w: 3.7, h: 0.4, fontSize: 13, color: "CADCFC", margin: 0, isTextBox: true, objectName: "Rec text " + (i + 1) });
   });
+  linkButton(s, 2.75, 4.78, 4.5, 0.55, "FFD24A", HEX.navy, "Closing link", 11);
 
   // ---------- 12. Limits & AI ----------
   s = pres.addSlide({ masterName: "Content", sectionTitle: "Close" });

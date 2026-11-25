@@ -50,6 +50,20 @@ function table(rows, widths, opts = {}) {
     })),
   });
 }
+const thick = { style: BorderStyle.SINGLE, size: 18, color: "000000" };
+function callout(lines) {
+  return new Table({ width: { size: W, type: WidthType.DXA }, columnWidths: [W],
+    rows: [new TableRow({ children: [new TableCell({ width: { size: W, type: WidthType.DXA },
+      borders: { top: thick, bottom: thick, left: thick, right: thick },
+      margins: { top: 160, bottom: 160, left: 220, right: 220 }, children: lines })] })] });
+}
+const hl = (text, o = {}) => new TextRun({ text, font: FONT, bold: true, highlight: "yellow", ...o });
+const hlink = (url, size = 24) => new ExternalHyperlink({ link: url, children: [new TextRun({ text: url, font: FONT, bold: true, underline: {}, color: "0000EE", highlight: "yellow", size })] });
+const pageBox = () => callout([
+  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 100 }, children: [hl("REVIEWER: PLEASE OPEN THE INTERACTIVE PLANNER", { size: 26 })] }),
+  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 100 }, children: [hlink(PAGE, 26)] }),
+  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 0 }, children: [t("The page solves the routing LP live in your browser: change rain level, road flooding, demand and penalty, and click a road to place the pump. All project files: ", { size: 20 }), link(REPO, REPO)] }),
+]);
 const gap = () => new Paragraph({ spacing: { after: 120 }, children: [] });
 const caption = (s) => new Paragraph({ spacing: { before: 60, after: 200 }, alignment: AlignmentType.CENTER,
   children: [t(s, { italics: true, size: 18 })] });
@@ -72,9 +86,8 @@ add(
   new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 80 }, children: [t("Decision Science: Creative AI Project", { bold: true })] }),
   new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 80 }, children: [t("Shivnath Rajendra Gujar | Roll No. FT271017 | Section 1")] }),
   new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 80 }, children: [t("PGPM 2026-27, Great Lakes Institute of Management, Chennai")] }),
-  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 600 }, children: [t("November 2026")] }),
-  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 80 }, children: [B("Interactive page: "), link(PAGE, PAGE)] }),
-  new Paragraph({ alignment: AlignmentType.CENTER, children: [B("Project files: "), link(REPO, REPO)] }),
+  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 900 }, children: [t("November 2026")] }),
+  pageBox(),
   new Paragraph({ children: [new PageBreak()] }),
 );
 
@@ -88,6 +101,8 @@ add(H1("1. Summary"),
   bullet([B("Choose evacuation roads by safety, not distance. "), t("On a very heavy day the shortest road out of Mudichur gets through only 13.5% of the time; a road 0.5 km longer gets through 81% of the time.")]),
   bullet([B("Put the pump at the exit. "), t("The bottleneck is the three roads leaving Mudichur. One pump on the Mudichur to Varadharajapuram road adds 180 vehicles per hour of evacuation capacity.")]),
   P("All network figures are illustrative and the rainfall series is synthetic, so the rupee values show how the method works rather than real costs. The Excel and Python templates accept real data."),
+  pageBox(),
+  gap(),
 );
 
 // ---------------- 2. Problem ----------------
@@ -313,7 +328,7 @@ add(H1("10. How AI was used"),
 
 // ---------------- 11. Files ----------------
 add(H1("11. Project files and links"),
-  P([B("Interactive web page: "), link(PAGE, PAGE)]),
+  P([hl("Interactive web page (live): "), hlink(PAGE, 22)]),
   P("The page runs the routing optimisation live in the browser. You can change the rain level, road flooding, demand and penalty and watch the flows and shortages update. You can also click a road on the evacuation map to place the pump and see the new routes and capacity."),
   P([B("GitHub repository: "), link(REPO, REPO)]),
   table([
