@@ -1,0 +1,843 @@
+{
+ "counts": [
+  [
+   220.0,
+   49.0,
+   13.0,
+   7.0
+  ],
+  [
+   51.0,
+   27.0,
+   8.0,
+   6.0
+  ],
+  [
+   12.0,
+   10.0,
+   11.0,
+   9.0
+  ],
+  [
+   5.0,
+   7.0,
+   10.0,
+   10.0
+  ]
+ ],
+ "P": [
+  [
+   0.7612456747404844,
+   0.1695501730103806,
+   0.04498269896193772,
+   0.02422145328719723
+  ],
+  [
+   0.5543478260869565,
+   0.29347826086956524,
+   0.08695652173913043,
+   0.06521739130434782
+  ],
+  [
+   0.2857142857142857,
+   0.23809523809523808,
+   0.2619047619047619,
+   0.21428571428571427
+  ],
+  [
+   0.15625,
+   0.21875,
+   0.3125,
+   0.3125
+  ]
+ ],
+ "steady": [
+  0.632223692936318,
+  0.20473377262646741,
+  0.09251218099363348,
+  0.0705303534435812
+ ],
+ "mfpt": [
+  2.116687066503468,
+  3.059159526723786,
+  3.518563851489188
+ ],
+ "spell": [
+  4.188405797101449,
+  1.4153846153846152,
+  1.3548387096774193,
+  1.4545454545454546
+ ],
+ "forecast": [
+  [
+   0.0,
+   1.0,
+   0.0,
+   0.0
+  ],
+  [
+   0.5543478260869565,
+   0.29347826086956524,
+   0.08695652173913043,
+   0.06521739130434782
+  ],
+  [
+   0.6197188587155089,
+   0.21508949751923453,
+   0.0936106720571026,
+   0.07158097170815396
+  ],
+  [
+   0.6289231292476424,
+   0.20614412418911354,
+   0.09346619586518363,
+   0.07146655069806045
+  ],
+  [
+   0.6309118349254774,
+   0.2050200085532462,
+   0.09302877467694985,
+   0.0710393818443264
+  ],
+  [
+   0.6316108548462995,
+   0.2048296993544445,
+   0.09277242988110385,
+   0.0707870159181521
+  ],
+  [
+   0.6319248097007361,
+   0.20477612716871377,
+   0.09264132278313679,
+   0.07065774034741329
+  ],
+  [
+   0.6320764503722656,
+   0.2047541409898961,
+   0.09257605067977548,
+   0.0705933579580628
+  ]
+ ],
+ "playbook": {
+  "D": {
+   "regime": "D",
+   "flows": {
+    "Koyambedu -> Guindy": 290.0,
+    "Koyambedu -> Tambaram": 0.0,
+    "Koyambedu -> Saidapet": 90.0,
+    "Koyambedu -> Vyasarpadi": 0.0,
+    "Madhavaram -> Guindy": 0.0,
+    "Madhavaram -> Vyasarpadi": 80.0,
+    "Madhavaram -> Sholinganallur": 0.0,
+    "Chengalpattu -> Tambaram": 220.0,
+    "Chengalpattu -> Sholinganallur": 0.0,
+    "Guindy -> Velachery": 160.0,
+    "Guindy -> Saidapet": 0.0,
+    "Guindy -> Pallikaranai": 130.0,
+    "Guindy -> Vyasarpadi": 0.0,
+    "Tambaram -> Mudichur": 120.0,
+    "Tambaram -> Perumbakkam": 100.0,
+    "Tambaram -> Pallikaranai": 0.0,
+    "Sholinganallur -> Pallikaranai": 0.0,
+    "Sholinganallur -> Perumbakkam": 0.0,
+    "Sholinganallur -> Velachery": 0.0
+   },
+   "unmet": {
+    "Velachery": 0.0,
+    "Pallikaranai": 0.0,
+    "Mudichur": 0.0,
+    "Saidapet": 0.0,
+    "Perumbakkam": 0.0,
+    "Vyasarpadi": 0.0
+   },
+   "transport_cost": 6510.0,
+   "total_cost": 6510.0,
+   "demand_total": 680.0,
+   "unmet_total": 0.0,
+   "duals_demand": {
+    "Velachery": 10.0,
+    "Pallikaranai": 12.0,
+    "Mudichur": 10.0,
+    "Saidapet": 7.0,
+    "Perumbakkam": 12.0,
+    "Vyasarpadi": 4.0
+   }
+  },
+  "M": {
+   "regime": "M",
+   "flows": {
+    "Koyambedu -> Guindy": 1450.0,
+    "Koyambedu -> Tambaram": 0.0,
+    "Koyambedu -> Saidapet": 450.0,
+    "Koyambedu -> Vyasarpadi": 0.0,
+    "Madhavaram -> Guindy": 0.0,
+    "Madhavaram -> Vyasarpadi": 400.0,
+    "Madhavaram -> Sholinganallur": 0.0,
+    "Chengalpattu -> Tambaram": 1100.0,
+    "Chengalpattu -> Sholinganallur": 0.0,
+    "Guindy -> Velachery": 800.0,
+    "Guindy -> Saidapet": 0.0,
+    "Guindy -> Pallikaranai": 650.0,
+    "Guindy -> Vyasarpadi": 0.0,
+    "Tambaram -> Mudichur": 600.0,
+    "Tambaram -> Perumbakkam": 500.0,
+    "Tambaram -> Pallikaranai": 0.0,
+    "Sholinganallur -> Pallikaranai": 0.0,
+    "Sholinganallur -> Perumbakkam": 0.0,
+    "Sholinganallur -> Velachery": 0.0
+   },
+   "unmet": {
+    "Velachery": 0.0,
+    "Pallikaranai": 0.0,
+    "Mudichur": 0.0,
+    "Saidapet": 0.0,
+    "Perumbakkam": 0.0,
+    "Vyasarpadi": 0.0
+   },
+   "transport_cost": 35805.0,
+   "total_cost": 35805.0,
+   "demand_total": 3400.0,
+   "unmet_total": 0.0,
+   "duals_demand": {
+    "Velachery": 11.0,
+    "Pallikaranai": 13.2,
+    "Mudichur": 11.0,
+    "Saidapet": 7.7,
+    "Perumbakkam": 13.2,
+    "Vyasarpadi": 4.4
+   }
+  },
+  "H": {
+   "regime": "H",
+   "flows": {
+    "Koyambedu -> Guindy": 3420.0,
+    "Koyambedu -> Tambaram": 0.0,
+    "Koyambedu -> Saidapet": 1080.0,
+    "Koyambedu -> Vyasarpadi": 0.0,
+    "Madhavaram -> Guindy": 0.0,
+    "Madhavaram -> Vyasarpadi": 960.0,
+    "Madhavaram -> Sholinganallur": 0.0,
+    "Chengalpattu -> Tambaram": 2700.0,
+    "Chengalpattu -> Sholinganallur": 0.0,
+    "Guindy -> Velachery": 1920.0,
+    "Guindy -> Saidapet": 0.0,
+    "Guindy -> Pallikaranai": 1500.0,
+    "Guindy -> Vyasarpadi": 0.0,
+    "Tambaram -> Mudichur": 1440.0,
+    "Tambaram -> Perumbakkam": 1200.0,
+    "Tambaram -> Pallikaranai": 60.0,
+    "Sholinganallur -> Pallikaranai": 0.0,
+    "Sholinganallur -> Perumbakkam": 0.0,
+    "Sholinganallur -> Velachery": 0.0
+   },
+   "unmet": {
+    "Velachery": 0.0,
+    "Pallikaranai": 0.0,
+    "Mudichur": 0.0,
+    "Saidapet": 0.0,
+    "Perumbakkam": 0.0,
+    "Vyasarpadi": 0.0
+   },
+   "transport_cost": 101634.0,
+   "total_cost": 101634.0,
+   "demand_total": 8160.0,
+   "unmet_total": 0.0,
+   "duals_demand": {
+    "Velachery": 13.0,
+    "Pallikaranai": 16.9,
+    "Mudichur": 13.0,
+    "Saidapet": 9.1,
+    "Perumbakkam": 15.6,
+    "Vyasarpadi": 5.2
+   }
+  },
+  "V": {
+   "regime": "V",
+   "flows": {
+    "Koyambedu -> Guindy": 2675.0,
+    "Koyambedu -> Tambaram": 0.0,
+    "Koyambedu -> Saidapet": 750.0,
+    "Koyambedu -> Vyasarpadi": 0.0,
+    "Madhavaram -> Guindy": 0.0,
+    "Madhavaram -> Vyasarpadi": 1600.0,
+    "Madhavaram -> Sholinganallur": 0.0,
+    "Chengalpattu -> Tambaram": 4175.0,
+    "Chengalpattu -> Sholinganallur": 2175.0,
+    "Guindy -> Velachery": 1000.0,
+    "Guindy -> Saidapet": 1050.0,
+    "Guindy -> Pallikaranai": 625.0,
+    "Guindy -> Vyasarpadi": 0.0,
+    "Tambaram -> Mudichur": 875.0,
+    "Tambaram -> Perumbakkam": 1800.0,
+    "Tambaram -> Pallikaranai": 1500.0,
+    "Sholinganallur -> Pallikaranai": 475.0,
+    "Sholinganallur -> Perumbakkam": 200.0,
+    "Sholinganallur -> Velachery": 1500.0
+   },
+   "unmet": {
+    "Velachery": 700.0,
+    "Pallikaranai": 0.0,
+    "Mudichur": 1525.0,
+    "Saidapet": 0.0,
+    "Perumbakkam": 0.0,
+    "Vyasarpadi": 0.0
+   },
+   "transport_cost": 201680.0,
+   "total_cost": 1314180.0,
+   "demand_total": 13600.0,
+   "unmet_total": 2225.0,
+   "duals_demand": {
+    "Velachery": 500.0,
+    "Pallikaranai": 25.6,
+    "Mudichur": 500.0,
+    "Saidapet": 14.4,
+    "Perumbakkam": 24.0,
+    "Vyasarpadi": 6.4
+   }
+  }
+ },
+ "stochastic": {
+  "probs": {
+   "D": 0.5543478260869565,
+   "M": 0.29347826086956524,
+   "H": 0.08695652173913043,
+   "V": 0.06521739130434782
+  },
+  "RP": {
+   "objective": 98115.1847826087,
+   "stage1_cost": 22100.0,
+   "y": {
+    "Koyambedu -> Guindy": 700.0,
+    "Koyambedu -> Tambaram": 0.0,
+    "Koyambedu -> Saidapet": 0.0,
+    "Koyambedu -> Vyasarpadi": 0.0,
+    "Madhavaram -> Guindy": 0.0,
+    "Madhavaram -> Vyasarpadi": 0.0,
+    "Madhavaram -> Sholinganallur": 0.0,
+    "Chengalpattu -> Tambaram": 600.0,
+    "Chengalpattu -> Sholinganallur": 0.0,
+    "Guindy -> Velachery": 700.0,
+    "Guindy -> Saidapet": 0.0,
+    "Guindy -> Pallikaranai": 0.0,
+    "Guindy -> Vyasarpadi": 0.0,
+    "Tambaram -> Mudichur": 600.0,
+    "Tambaram -> Perumbakkam": 0.0,
+    "Tambaram -> Pallikaranai": 0.0,
+    "Sholinganallur -> Pallikaranai": 0.0,
+    "Sholinganallur -> Perumbakkam": 0.0,
+    "Sholinganallur -> Velachery": 0.0
+   },
+   "hub_stock": {
+    "Guindy": 0.0,
+    "Tambaram": 0.0,
+    "Sholinganallur": 0.0
+   },
+   "camp_stock": {
+    "Velachery": 700.0,
+    "Pallikaranai": 0.0,
+    "Mudichur": 600.0,
+    "Saidapet": 0.0,
+    "Perumbakkam": 0.0,
+    "Vyasarpadi": 0.0
+   },
+   "scenario": {
+    "D": {
+     "unmet": 0.0,
+     "waste": 1020.0,
+     "cost": 34310.0
+    },
+    "M": {
+     "unmet": 0.0,
+     "waste": 0.0,
+     "cost": 21505.0
+    },
+    "H": {
+     "unmet": 0.0,
+     "waste": 0.0,
+     "cost": 84734.0
+    },
+    "V": {
+     "unmet": 925.0,
+     "waste": 0.0,
+     "cost": 664180.0
+    }
+   }
+  },
+  "EEV": {
+   "objective": 108661.92391304347,
+   "stage1_cost": 0.0,
+   "y": {
+    "Koyambedu -> Guindy": 0.0,
+    "Koyambedu -> Tambaram": 0.0,
+    "Koyambedu -> Saidapet": 0.0,
+    "Koyambedu -> Vyasarpadi": 0.0,
+    "Madhavaram -> Guindy": 0.0,
+    "Madhavaram -> Vyasarpadi": 0.0,
+    "Madhavaram -> Sholinganallur": 0.0,
+    "Chengalpattu -> Tambaram": 0.0,
+    "Chengalpattu -> Sholinganallur": 0.0,
+    "Guindy -> Velachery": 0.0,
+    "Guindy -> Saidapet": 0.0,
+    "Guindy -> Pallikaranai": 0.0,
+    "Guindy -> Vyasarpadi": 0.0,
+    "Tambaram -> Mudichur": 0.0,
+    "Tambaram -> Perumbakkam": 0.0,
+    "Tambaram -> Pallikaranai": 0.0,
+    "Sholinganallur -> Pallikaranai": 0.0,
+    "Sholinganallur -> Perumbakkam": 0.0,
+    "Sholinganallur -> Velachery": 0.0
+   },
+   "hub_stock": {
+    "Guindy": 0.0,
+    "Tambaram": 0.0,
+    "Sholinganallur": 0.0
+   },
+   "camp_stock": {
+    "Velachery": 0.0,
+    "Pallikaranai": 0.0,
+    "Mudichur": 0.0,
+    "Saidapet": 0.0,
+    "Perumbakkam": 0.0,
+    "Vyasarpadi": 0.0
+   },
+   "scenario": {
+    "D": {
+     "unmet": 0.0,
+     "waste": 0.0,
+     "cost": 6510.0
+    },
+    "M": {
+     "unmet": 0.0,
+     "waste": 0.0,
+     "cost": 35805.0
+    },
+    "H": {
+     "unmet": 0.0,
+     "waste": 0.0,
+     "cost": 101634.0
+    },
+    "V": {
+     "unmet": 2225.0,
+     "waste": 0.0,
+     "cost": 1314180.0
+    }
+   }
+  },
+  "EML": {
+   "objective": 108661.92391304347,
+   "stage1_cost": 0.0,
+   "y": {
+    "Koyambedu -> Guindy": 0.0,
+    "Koyambedu -> Tambaram": 0.0,
+    "Koyambedu -> Saidapet": 0.0,
+    "Koyambedu -> Vyasarpadi": 0.0,
+    "Madhavaram -> Guindy": 0.0,
+    "Madhavaram -> Vyasarpadi": 0.0,
+    "Madhavaram -> Sholinganallur": 0.0,
+    "Chengalpattu -> Tambaram": 0.0,
+    "Chengalpattu -> Sholinganallur": 0.0,
+    "Guindy -> Velachery": 0.0,
+    "Guindy -> Saidapet": 0.0,
+    "Guindy -> Pallikaranai": 0.0,
+    "Guindy -> Vyasarpadi": 0.0,
+    "Tambaram -> Mudichur": 0.0,
+    "Tambaram -> Perumbakkam": 0.0,
+    "Tambaram -> Pallikaranai": 0.0,
+    "Sholinganallur -> Pallikaranai": 0.0,
+    "Sholinganallur -> Perumbakkam": 0.0,
+    "Sholinganallur -> Velachery": 0.0
+   },
+   "hub_stock": {
+    "Guindy": 0.0,
+    "Tambaram": 0.0,
+    "Sholinganallur": 0.0
+   },
+   "camp_stock": {
+    "Velachery": 0.0,
+    "Pallikaranai": 0.0,
+    "Mudichur": 0.0,
+    "Saidapet": 0.0,
+    "Perumbakkam": 0.0,
+    "Vyasarpadi": 0.0
+   },
+   "scenario": {
+    "D": {
+     "unmet": 0.0,
+     "waste": 0.0,
+     "cost": 6510.0
+    },
+    "M": {
+     "unmet": 0.0,
+     "waste": 0.0,
+     "cost": 35805.0
+    },
+    "H": {
+     "unmet": 0.0,
+     "waste": 0.0,
+     "cost": 101634.0
+    },
+    "V": {
+     "unmet": 2225.0,
+     "waste": 0.0,
+     "cost": 1314180.0
+    }
+   }
+  },
+  "NONE": {
+   "objective": 108661.92391304347,
+   "stage1_cost": 0.0,
+   "y": {
+    "Koyambedu -> Guindy": 0.0,
+    "Koyambedu -> Tambaram": 0.0,
+    "Koyambedu -> Saidapet": 0.0,
+    "Koyambedu -> Vyasarpadi": 0.0,
+    "Madhavaram -> Guindy": 0.0,
+    "Madhavaram -> Vyasarpadi": 0.0,
+    "Madhavaram -> Sholinganallur": 0.0,
+    "Chengalpattu -> Tambaram": 0.0,
+    "Chengalpattu -> Sholinganallur": 0.0,
+    "Guindy -> Velachery": 0.0,
+    "Guindy -> Saidapet": 0.0,
+    "Guindy -> Pallikaranai": 0.0,
+    "Guindy -> Vyasarpadi": 0.0,
+    "Tambaram -> Mudichur": 0.0,
+    "Tambaram -> Perumbakkam": 0.0,
+    "Tambaram -> Pallikaranai": 0.0,
+    "Sholinganallur -> Pallikaranai": 0.0,
+    "Sholinganallur -> Perumbakkam": 0.0,
+    "Sholinganallur -> Velachery": 0.0
+   },
+   "hub_stock": {
+    "Guindy": 0.0,
+    "Tambaram": 0.0,
+    "Sholinganallur": 0.0
+   },
+   "camp_stock": {
+    "Velachery": 0.0,
+    "Pallikaranai": 0.0,
+    "Mudichur": 0.0,
+    "Saidapet": 0.0,
+    "Perumbakkam": 0.0,
+    "Vyasarpadi": 0.0
+   },
+   "scenario": {
+    "D": {
+     "unmet": 0.0,
+     "waste": 0.0,
+     "cost": 6510.0
+    },
+    "M": {
+     "unmet": 0.0,
+     "waste": 0.0,
+     "cost": 35805.0
+    },
+    "H": {
+     "unmet": 0.0,
+     "waste": 0.0,
+     "cost": 101634.0
+    },
+    "V": {
+     "unmet": 2225.0,
+     "waste": 0.0,
+     "cost": 1314180.0
+    }
+   }
+  },
+  "WS": 37870.72826086957,
+  "likely": "D",
+  "VSS": 10546.73913043477,
+  "EVPI": 60244.456521739135
+ },
+ "evac": {
+  "H": {
+   "regime": "H",
+   "shortest": {
+    "path": [
+     "Mudichur",
+     "Varadharajapuram",
+     "Perungalathur",
+     "Vandalur"
+    ],
+    "km": 8.0,
+    "reliability": 0.45599999999999996
+   },
+   "reliable": {
+    "path": [
+     "Mudichur",
+     "Perungalathur",
+     "Vandalur"
+    ],
+    "km": 8.5,
+    "reliability": 0.9025
+   },
+   "maxflow": 1005.0,
+   "mincut": [
+    "Mudichur -> Varadharajapuram",
+    "Mudichur -> Tambaram West",
+    "Mudichur -> Perungalathur"
+   ],
+   "mincut_value": 1005.0,
+   "upgrades": [
+    {
+     "arc": "Mudichur -> Varadharajapuram",
+     "from_vuln": "high",
+     "new_maxflow": 1145.0,
+     "gain": 140.0
+    },
+    {
+     "arc": "Mudichur -> Tambaram West",
+     "from_vuln": "med",
+     "new_maxflow": 1095.0,
+     "gain": 90.0
+    },
+    {
+     "arc": "Varadharajapuram -> Tambaram East",
+     "from_vuln": "high",
+     "new_maxflow": 1005.0,
+     "gain": 0.0
+    },
+    {
+     "arc": "Varadharajapuram -> Perungalathur",
+     "from_vuln": "med",
+     "new_maxflow": 1005.0,
+     "gain": 0.0
+    },
+    {
+     "arc": "Tambaram West -> Tambaram East",
+     "from_vuln": "high",
+     "new_maxflow": 1005.0,
+     "gain": 0.0
+    },
+    {
+     "arc": "Tambaram West -> Chromepet",
+     "from_vuln": "med",
+     "new_maxflow": 1005.0,
+     "gain": 0.0
+    }
+   ]
+  },
+  "V": {
+   "regime": "V",
+   "shortest": {
+    "path": [
+     "Mudichur",
+     "Varadharajapuram",
+     "Perungalathur",
+     "Vandalur"
+    ],
+    "km": 8.0,
+    "reliability": 0.135
+   },
+   "reliable": {
+    "path": [
+     "Mudichur",
+     "Perungalathur",
+     "Vandalur"
+    ],
+    "km": 8.5,
+    "reliability": 0.81
+   },
+   "maxflow": 730.0,
+   "mincut": [
+    "Mudichur -> Varadharajapuram",
+    "Mudichur -> Tambaram West",
+    "Mudichur -> Perungalathur"
+   ],
+   "mincut_value": 730.0,
+   "upgrades": [
+    {
+     "arc": "Mudichur -> Varadharajapuram",
+     "from_vuln": "high",
+     "new_maxflow": 910.0,
+     "gain": 180.0
+    },
+    {
+     "arc": "Mudichur -> Tambaram West",
+     "from_vuln": "med",
+     "new_maxflow": 870.0,
+     "gain": 140.0
+    },
+    {
+     "arc": "Varadharajapuram -> Tambaram East",
+     "from_vuln": "high",
+     "new_maxflow": 730.0,
+     "gain": 0.0
+    },
+    {
+     "arc": "Varadharajapuram -> Perungalathur",
+     "from_vuln": "med",
+     "new_maxflow": 730.0,
+     "gain": 0.0
+    },
+    {
+     "arc": "Tambaram West -> Tambaram East",
+     "from_vuln": "high",
+     "new_maxflow": 730.0,
+     "gain": 0.0
+    },
+    {
+     "arc": "Tambaram West -> Chromepet",
+     "from_vuln": "med",
+     "new_maxflow": 730.0,
+     "gain": 0.0
+    }
+   ]
+  }
+ },
+ "policy": {
+  "M": {
+   "probs": {
+    "D": 0.5543478260869565,
+    "M": 0.29347826086956524,
+    "H": 0.08695652173913043,
+    "V": 0.06521739130434782
+   },
+   "camp_stock": {
+    "Velachery": 700.0,
+    "Pallikaranai": 0.0,
+    "Mudichur": 600.0,
+    "Saidapet": 0.0,
+    "Perumbakkam": 0.0,
+    "Vyasarpadi": 0.0
+   },
+   "hub_stock": {
+    "Guindy": 0.0,
+    "Tambaram": 0.0,
+    "Sholinganallur": 0.0
+   },
+   "RP": 98115.1847826087,
+   "EEV": 108661.92391304347,
+   "NONE": 108661.92391304347,
+   "WS": 37870.72826086957,
+   "VSS": 10546.73913043477,
+   "EVPI": 60244.456521739135,
+   "unmet_RP": {
+    "D": 0.0,
+    "M": 0.0,
+    "H": 0.0,
+    "V": 925.0
+   },
+   "unmet_NONE": {
+    "D": 0.0,
+    "M": 0.0,
+    "H": 0.0,
+    "V": 2225.0
+   }
+  },
+  "H": {
+   "probs": {
+    "D": 0.2857142857142857,
+    "M": 0.23809523809523808,
+    "H": 0.2619047619047619,
+    "V": 0.21428571428571427
+   },
+   "camp_stock": {
+    "Velachery": 700.0,
+    "Pallikaranai": 0.0,
+    "Mudichur": 1500.0,
+    "Saidapet": 0.0,
+    "Perumbakkam": 0.0,
+    "Vyasarpadi": 0.0
+   },
+   "hub_stock": {
+    "Guindy": 0.0,
+    "Tambaram": 0.0,
+    "Sholinganallur": 0.0
+   },
+   "RP": 136565.33333333334,
+   "EEV": 318613.4285714286,
+   "NONE": 318613.4285714286,
+   "WS": 89058.78571428571,
+   "VSS": 182048.09523809524,
+   "EVPI": 47506.54761904763,
+   "unmet_RP": {
+    "D": 0.0,
+    "M": 0.0,
+    "H": 0.0,
+    "V": 25.0
+   },
+   "unmet_NONE": {
+    "D": 0.0,
+    "M": 0.0,
+    "H": 0.0,
+    "V": 2225.0
+   }
+  },
+  "V": {
+   "probs": {
+    "D": 0.15625,
+    "M": 0.21875,
+    "H": 0.3125,
+    "V": 0.3125
+   },
+   "camp_stock": {
+    "Velachery": 700.0,
+    "Pallikaranai": 0.0,
+    "Mudichur": 875.0,
+    "Saidapet": 0.0,
+    "Perumbakkam": 0.0,
+    "Vyasarpadi": 0.0
+   },
+   "hub_stock": {
+    "Guindy": 0.0,
+    "Tambaram": 0.0,
+    "Sholinganallur": 0.0
+   },
+   "RP": 237758.59375,
+   "EEV": 451291.40625,
+   "NONE": 451291.40625,
+   "WS": 215282.03125,
+   "VSS": 213532.8125,
+   "EVPI": 22476.5625,
+   "unmet_RP": {
+    "D": 0.0,
+    "M": 0.0,
+    "H": 0.0,
+    "V": 650.0
+   },
+   "unmet_NONE": {
+    "D": 0.0,
+    "M": 0.0,
+    "H": 0.0,
+    "V": 2225.0
+   }
+  }
+ },
+ "sensitivity": [
+  {
+   "penalty": 100,
+   "prepos_total": 0.0,
+   "RP": 50618.445652173905,
+   "VSS": 0.0,
+   "unmet_V": 2225.0
+  },
+  {
+   "penalty": 250,
+   "prepos_total": 280.0,
+   "RP": 69806.92391304347,
+   "VSS": 2577.8260869565274,
+   "unmet_V": 1945.0
+  },
+  {
+   "penalty": 500,
+   "prepos_total": 1300.0,
+   "RP": 98115.1847826087,
+   "VSS": 10546.73913043477,
+   "unmet_V": 925.0
+  },
+  {
+   "penalty": 1000,
+   "prepos_total": 2200.0,
+   "RP": 106980.83695652174,
+   "VSS": 74235.43478260869,
+   "unmet_V": 25.0
+  },
+  {
+   "penalty": 2000,
+   "prepos_total": 2200.0,
+   "RP": 108611.27173913045,
+   "VSS": 217713.6956521739,
+   "unmet_V": 25.0
+  }
+ ]
+}

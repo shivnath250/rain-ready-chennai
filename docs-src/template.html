@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rain-Ready Chennai | Monsoon relief planner</title>
+<style>
+:root{
+  --ink:#10212f; --muted:#5b6b78; --line:#d9e0e6; --bg:#f5f7f9; --card:#ffffff;
+  --accent:#0d6e78; --accent-soft:#e3f1f2; --low:#2f7d4f; --med:#c48a10; --high:#c23b2e;
+  --D:#8fb3c9; --M:#3f86b5; --H:#1d4f7a; --V:#0b2441;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5}
+header{background:linear-gradient(135deg,#0b2441 0%,#0d4a62 60%,#0d6e78 100%);color:#fff;padding:48px 24px 40px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+header .wrap{padding:0}
+.eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:12px;opacity:.8;margin:0 0 10px}
+h1{font-size:clamp(28px,4vw,44px);margin:0 0 12px;line-height:1.15;font-weight:700}
+header p.lead{font-size:18px;max-width:760px;opacity:.92;margin:0 0 22px}
+.meta{font-size:13px;opacity:.8}
+nav{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;gap:4px;overflow-x:auto;padding:0 24px}
+nav a{padding:14px 14px;color:var(--muted);text-decoration:none;font-size:14px;font-weight:600;white-space:nowrap;border-bottom:3px solid transparent}
+nav a:hover{color:var(--accent);border-color:var(--accent)}
+section{padding:44px 0 8px}
+h2{font-size:26px;margin:0 0 6px}
+.sub{color:var(--muted);margin:0 0 22px;max-width:820px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px;margin-bottom:20px}
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:1.6fr 1fr}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+@media (max-width:860px){.g2,.g3,.g4{grid-template-columns:1fr}}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
+.kpi .v{font-size:30px;font-weight:700;line-height:1.1}
+.kpi .l{color:var(--muted);font-size:13px;margin-top:4px}
+.kpi.alert .v{color:var(--high)}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:#fff}
+.seg button{border:0;background:transparent;padding:8px 16px;font-size:14px;font-weight:600;color:var(--muted);cursor:pointer}
+.seg button.on{background:var(--accent);color:#fff}
+.controls{display:flex;flex-wrap:wrap;gap:18px 28px;align-items:center;margin-bottom:16px}
+.ctl label{display:block;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;font-weight:600}
+.ctl input[type=range]{width:200px;accent-color:var(--accent)}
+.ctl .val{font-weight:700;margin-left:8px;font-size:14px}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:right}
+th:first-child,td:first-child{text-align:left}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:600}
+td.short{color:var(--high);font-weight:700}
+svg text{font-family:inherit}
+.legend{display:flex;flex-wrap:wrap;gap:16px;font-size:13px;color:var(--muted);margin-top:10px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{display:inline-block;width:22px;height:0;border-top:3px solid}
+.note{font-size:13px;color:var(--muted)}
+.callout{border-left:4px solid var(--accent);background:var(--accent-soft);padding:12px 16px;border-radius:0 8px 8px 0;font-size:15px;margin:0 0 16px}
+.bar{height:26px;border-radius:4px;display:flex;align-items:center;padding:0 8px;color:#fff;font-size:13px;font-weight:600;white-space:nowrap;transition:width .35s}
+.barrow{display:grid;grid-template-columns:190px 1fr;gap:10px;align-items:center;margin:8px 0;font-size:14px}
+@media (max-width:600px){.barrow{grid-template-columns:110px 1fr}}
+.pill{display:inline-block;padding:2px 10px;border-radius:999px;font-size:12px;font-weight:700;color:#fff}
+.road{cursor:pointer}
+.road:hover{opacity:.75}
+footer{padding:36px 0 48px;color:var(--muted);font-size:13px}
+footer a{color:var(--accent)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;counter-reset:s}
+@media (max-width:860px){.steps{grid-template-columns:1fr 1fr}}
+.step{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;position:relative}
+.step b{display:block;margin-bottom:4px}
+.step .n{font-size:12px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.08em}
+.step p{margin:0;font-size:14px;color:var(--muted)}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <p class="eyebrow">Decision Science project &middot; Great Lakes Institute of Management, Chennai</p>
+    <h1>Rain-Ready Chennai</h1>
+    <p class="lead">A planner for the North-East Monsoon: where to stock relief kits tonight, how to route them tomorrow, and which road gets people out safely.</p>
+    <div class="meta">Shivnath Rajendra Gujar &middot; PGPM 2026-27 &middot; Network data is illustrative and rainfall is synthetic</div>
+  </div>
+</header>
+<nav><div class="wrap">
+  <a href="#overview">Overview</a><a href="#rain">1. Rain forecast</a><a href="#route">2. Route kits (live LP)</a>
+  <a href="#stock">3. Stock tonight</a><a href="#evac">4. Evacuate</a><a href="#about">Data &amp; files</a>
+</div></nav>
+
+<main class="wrap">
+<section id="overview">
+  <h2>Four questions, four models</h2>
+  <p class="sub">Each model answers one decision a relief control room faces every evening of the monsoon. The answer of each one feeds the next.</p>
+  <div class="steps">
+    <div class="step"><span class="n">Markov chain</span><b>How will the rain behave?</b><p>Chance of each rain level tomorrow, and how long a wet spell lasts.</p></div>
+    <div class="step"><span class="n">Transshipment LP</span><b>How should kits move?</b><p>Cheapest routes from warehouses through hubs to camps, for each rain level.</p></div>
+    <div class="step"><span class="n">Stochastic LP</span><b>What to stock tonight?</b><p>Pre-position kits before knowing tomorrow's rain.</p></div>
+    <div class="step"><span class="n">Network models</span><b>Which road out?</b><p>Safest evacuation route and the bottleneck road to pump.</p></div>
+  </div>
+  <div class="grid g4" style="margin-top:20px">
+    <div class="kpi alert"><div class="v">2,225</div><div class="l">kits that cannot reach Velachery and Mudichur on a very heavy day</div></div>
+    <div class="kpi"><div class="v">&#8377;10,547</div><div class="l">expected saving from stocking 1,300 kits tonight (moderate day)</div></div>
+    <div class="kpi"><div class="v">81% vs 13.5%</div><div class="l">chance of getting out of Mudichur: safest road vs shortest road</div></div>
+    <div class="kpi"><div class="v">3.5 days</div><div class="l">expected wait for a dry day after a very heavy day</div></div>
+  </div>
+</section>
+
+<section id="rain">
+  <h2>1. Rain forecast (Markov chain)</h2>
+  <p class="sub">Each day is one of four rain levels, using IMD daily rainfall classes. Pick today's level to see the forecast for the next week.</p>
+  <div class="card">
+    <div class="controls">
+      <div class="ctl"><label>Today's rain</label><div class="seg" id="todaySeg"></div></div>
+    </div>
+    <div class="grid g2">
+      <div><svg id="fcChart" viewBox="0 0 640 300" width="100%"></svg>
+        <div class="legend" id="fcLegend"></div></div>
+      <div>
+        <table id="fcTable"></table>
+        <p class="callout" id="fcNote" style="margin-top:16px"></p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <b>Transition matrix P</b> <span class="note">(row = today, column = tomorrow; estimated from 460 days of rainfall)</span>
+    <table id="pTable" style="margin-top:10px"></table>
+  </div>
+</section>
+
+<section id="route">
+  <h2>2. Route relief kits (live optimisation)</h2>
+  <p class="sub">This map solves a minimum-cost flow problem in your browser every time you move a control. Line thickness shows kits per day. Red numbers at a camp are kits that cannot be delivered.</p>
+  <div class="card">
+    <div class="controls">
+      <div class="ctl"><label>Rain level</label><div class="seg" id="regSeg"></div></div>
+      <div class="ctl"><label>Road flooding severity<span class="val" id="sevV"></span></label><input type="range" id="sev" min="50" max="150" step="5" value="100"></div>
+      <div class="ctl"><label>Demand<span class="val" id="demV"></span></label><input type="range" id="dem" min="50" max="150" step="5" value="100"></div>
+      <div class="ctl"><label>Penalty per missed kit<span class="val" id="penV"></span></label><input type="range" id="pen" min="50" max="2000" step="50" value="500"></div>
+    </div>
+    <div class="grid g2">
+      <div><svg id="netMap" viewBox="0 0 900 760" width="100%"></svg>
+        <div class="legend">
+          <span><i class="sw" style="border-color:var(--low)"></i>low flood risk</span>
+          <span><i class="sw" style="border-color:var(--med)"></i>medium</span>
+          <span><i class="sw" style="border-color:var(--high)"></i>high</span>
+          <span>&#9632; source &nbsp; &#9670; hub &nbsp; &#9679; camp</span>
+        </div></div>
+      <div>
+        <div class="grid" style="grid-template-columns:1fr 1fr;gap:12px">
+          <div class="kpi"><div class="v" id="kDem"></div><div class="l">kits needed</div></div>
+          <div class="kpi alert"><div class="v" id="kShort"></div><div class="l">kits short</div></div>
+          <div class="kpi"><div class="v" id="kTrans"></div><div class="l">transport cost</div></div>
+          <div class="kpi"><div class="v" id="kTot"></div><div class="l">total cost incl. penalty</div></div>
+        </div>
+        <table id="campTable" style="margin-top:16px"></table>
+        <p class="note" style="margin-top:12px">Defaults reproduce the report: very heavy rain gives 2,225 kits short at Velachery and Mudichur while warehouses still have spare kits. Try lowering flooding severity to see the shortfall disappear.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="stock">
+  <h2>3. What to stock tonight (two-stage stochastic LP)</h2>
+  <p class="sub">Tonight's decision is made before tomorrow's rain is known. The model weighs all four possible tomorrows by their Markov probabilities.</p>
+  <div class="card">
+    <div class="controls">
+      <div class="ctl"><label>Today's rain</label><div class="seg" id="stSeg"></div></div>
+    </div>
+    <div class="grid g2">
+      <div>
+        <b>Kits to stock tonight</b>
+        <div id="stockBars" style="margin:10px 0 22px"></div>
+        <b>Expected cost of each plan</b>
+        <div id="costBars" style="margin-top:10px"></div>
+      </div>
+      <div>
+        <div class="grid" style="grid-template-columns:1fr 1fr;gap:12px">
+          <div class="kpi"><div class="v" id="kVSS"></div><div class="l">value of planning with scenarios (VSS)</div></div>
+          <div class="kpi"><div class="v" id="kEVPI"></div><div class="l">value of a perfect forecast (EVPI)</div></div>
+        </div>
+        <p class="callout" id="stNote" style="margin-top:16px"></p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="controls"><div class="ctl"><label>Penalty per missed kit (today = moderate)<span class="val" id="spV"></span></label><input type="range" id="sp" min="0" max="4" step="1" value="2"></div></div>
+    <table id="sensTable"></table>
+  </div>
+</section>
+
+<section id="evac">
+  <h2>4. Evacuate Mudichur (network models)</h2>
+  <p class="sub">Click a road to place the single dewatering pump on it (it becomes low-risk). The page recomputes the safest route, the shortest route and the maximum evacuation flow.</p>
+  <div class="card">
+    <div class="controls">
+      <div class="ctl"><label>Rain level</label><div class="seg" id="evSeg"></div></div>
+      <div class="ctl"><button id="clearPump" style="border:1px solid var(--line);background:#fff;border-radius:8px;padding:8px 14px;cursor:pointer;font-weight:600">Remove pump</button></div>
+    </div>
+    <div class="grid g2">
+      <div><svg id="evMap" viewBox="0 0 660 440" width="100%"></svg>
+        <div class="legend">
+          <span><i class="sw" style="border-color:var(--accent);border-top-width:6px"></i>safest route</span>
+          <span><i class="sw" style="border-color:#111;border-top-style:dashed"></i>shortest route</span>
+          <span>&#9733; shelter</span>
+        </div></div>
+      <div>
+        <table id="evTable"></table>
+        <div class="grid" style="grid-template-columns:1fr 1fr;gap:12px;margin-top:16px">
+          <div class="kpi"><div class="v" id="kFlow"></div><div class="l">max evacuation flow (vehicles/hour)</div></div>
+          <div class="kpi"><div class="v" id="kPump"></div><div class="l">pump location</div></div>
+        </div>
+        <p class="callout" id="evNote" style="margin-top:16px"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <h2>Data, method and files</h2>
+  <div class="card">
+    <p style="margin-top:0">Rain levels follow IMD daily rainfall classes: dry or light (below 15.6 mm), moderate (15.6 to 64.4 mm), heavy (64.5 to 115.5 mm) and very heavy or extreme (115.6 mm and above). The rainfall series is synthetic (5 seasons of 92 days). Road costs, capacities and flood probabilities are illustrative values chosen for teaching. All of them can be replaced in the Excel and Python templates.</p>
+    <p>Section 2 runs a successive-shortest-path minimum-cost flow algorithm in JavaScript, which gives the same optimum as the transshipment LP in the Python and Excel files. Sections 1 and 4 are also computed live. Section 3 shows results from the Python stochastic LP.</p>
+    <p style="margin-bottom:0"><b>Files:</b> <a href="__REPO__">GitHub repository</a> (Word report, Excel template with Solver models, Python model, slides).</p>
+  </div>
+</section>
+</main>
+<footer><div class="wrap">Rain-Ready Chennai &middot; Decision Science project, Great Lakes Institute of Management &middot; Built with AI assistance (Claude) and checked by hand.</div></footer>
+
+<script>
+const DATA = __DATA__;
+const S = ["D","M","H","V"];
+const SN = {D:"Dry / light",M:"Moderate",H:"Heavy",V:"Very heavy"};
+const SC = {D:"#8fb3c9",M:"#3f86b5",H:"#1d4f7a",V:"#0b2441"};
+const RISK = {low:"#2f7d4f",med:"#c48a10",high:"#c23b2e"};
+const fmt = n => Math.round(n).toLocaleString("en-IN");
+const rs = n => "₹" + fmt(n);
+const $ = id => document.getElementById(id);
+function seg(el, opts, cur, cb){
+  el.innerHTML = "";
+  opts.forEach(o=>{const b=document.createElement("button");b.textContent=o.label;if(o.v===cur)b.className="on";
+    b.onclick=()=>{[...el.children].forEach(c=>c.className="");b.className="on";cb(o.v)};el.appendChild(b)});
+}
+const NS="http://www.w3.org/2000/svg";
+function mk(tag, attrs, parent){const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);if(parent)parent.appendChild(e);return e;}
+
+/* ---------------- 1. Markov ---------------- */
+const P = DATA.P;
+function forecast(start, n){const out=[];let pi=S.map(s=>s===start?1:0);out.push(pi);
+  for(let k=0;k<n;k++){pi=S.map((_,j)=>pi.reduce((a,p,i)=>a+p*P[i][j],0));out.push(pi);}return out;}
+function solve(A,b){const n=b.length;const M=A.map((r,i)=>[...r,b[i]]);
+  for(let c=0;c<n;c++){let p=c;for(let r=c+1;r<n;r++)if(Math.abs(M[r][c])>Math.abs(M[p][c]))p=r;[M[c],M[p]]=[M[p],M[c]];
+    for(let r=0;r<n;r++){if(r===c)continue;const f=M[r][c]/M[c][c];for(let k=c;k<=n;k++)M[r][k]-=f*M[c][k];}}
+  return M.map((r,i)=>r[n]/r[i]);}
+const IQ=[1,2,3].map(i=>[1,2,3].map(j=>(i===j?1:0)-P[i][j]));
+const mfpt=solve(IQ,[1,1,1]);
+function drawMarkov(today){
+  const f=forecast(today,7), svg=$("fcChart"); svg.innerHTML="";
+  const W=640,H=300,L=46,R=20,T=16,B=36, x=d=>L+d*(W-L-R)/7, y=p=>T+(1-p)*(H-T-B);
+  for(let g=0;g<=4;g++){const yy=y(g/4);mk("line",{x1:L,x2:W-R,y1:yy,y2:yy,stroke:"#e5e9ed"},svg);
+    mk("text",{x:L-8,y:yy+4,"text-anchor":"end","font-size":11,fill:"#5b6b78"},svg).textContent=(g*25)+"%";}
+  for(let d=0;d<=7;d++){mk("text",{x:x(d),y:H-12,"text-anchor":"middle","font-size":11,fill:"#5b6b78"},svg).textContent=d===0?"today":"+"+d;}
+  S.forEach((s,j)=>{const pts=f.map((p,d)=>x(d)+","+y(p[j])).join(" ");
+    mk("polyline",{points:pts,fill:"none",stroke:SC[s],"stroke-width":3},svg);
+    f.forEach((p,d)=>mk("circle",{cx:x(d),cy:y(p[j]),r:3.5,fill:SC[s]},svg));});
+  $("fcLegend").innerHTML=S.map(s=>`<span><i class="sw" style="border-color:${SC[s]}"></i>${SN[s]}</span>`).join("");
+  const rows=[["Tomorrow",f[1]],["In 2 days",f[2]],["Long run",DATA.steady]];
+  $("fcTable").innerHTML="<tr><th>Chance of</th>"+S.map(s=>`<th>${s}</th>`).join("")+"</tr>"+
+    rows.map(([l,p])=>`<tr><td>${l}</td>${p.map(v=>`<td>${(v*100).toFixed(1)}%</td>`).join("")}</tr>`).join("");
+  const i=S.indexOf(today);
+  const wet = today==="D" ? `A dry day is followed by another dry day ${(P[0][0]*100).toFixed(0)}% of the time; dry spells last about ${(1/(1-P[0][0])).toFixed(1)} days.`
+     : `From ${SN[today].toLowerCase()} rain, expect about <b>${mfpt[i-1].toFixed(1)} days</b> until the next dry day. The forecast is close to the long-run average within 2 to 3 days, so plans should be revised every evening.`;
+  $("fcNote").innerHTML=wet;
+}
+$("pTable").innerHTML="<tr><th>Today \\ Tomorrow</th>"+S.map(s=>`<th>${SN[s]}</th>`).join("")+"</tr>"+
+  P.map((r,i)=>`<tr><td><b>${SN[S[i]]}</b></td>${r.map(v=>`<td>${v.toFixed(3)}</td>`).join("")}</tr>`).join("");
+seg($("todaySeg"),S.map(s=>({v:s,label:SN[s]})),"M",drawMarkov); drawMarkov("M");
+
+/* ---------------- 2. Min-cost flow ---------------- */
+const NET=DATA.net;
+const POS={Madhavaram:[400,60],Vyasarpadi:[620,110],Koyambedu:[260,230],Saidapet:[560,250],Guindy:[420,330],
+  Velachery:[580,390],Pallikaranai:[640,480],Sholinganallur:[790,470],Perumbakkam:[700,600],Tambaram:[380,560],
+  Mudichur:[190,600],Chengalpattu:[300,720]};
+const LBL={Koyambedu:"left",Mudichur:"left",Sholinganallur:"below",Pallikaranai:"right",Velachery:"right",Perumbakkam:"below",Chengalpattu:"right",Tambaram:"below",Guindy:"left"};
+function mcf(n, edges, s, t, need){
+  const g=Array.from({length:n},()=>[]), E=[];
+  edges.forEach(e=>{g[e.u].push(E.length);E.push({to:e.v,cap:e.cap,cost:e.cost,flow:0,ref:e});
+                    g[e.v].push(E.length);E.push({to:e.u,cap:0,cost:-e.cost,flow:0,ref:null});});
+  let sent=0,eps=1e-9;
+  while(need-sent>eps){
+    const dist=Array(n).fill(Infinity),prev=Array(n).fill(-1),inq=Array(n).fill(false);dist[s]=0;const q=[s];
+    while(q.length){const u=q.shift();inq[u]=false;for(const id of g[u]){const e=E[id];
+      if(e.cap-e.flow>eps&&dist[u]+e.cost<dist[e.to]-1e-12){dist[e.to]=dist[u]+e.cost;prev[e.to]=id;if(!inq[e.to]){inq[e.to]=true;q.push(e.to);}}}}
+    if(dist[t]===Infinity)break;
+    let f=need-sent;for(let v=t;v!==s;v=E[prev[v]^1].to)f=Math.min(f,E[prev[v]].cap-E[prev[v]].flow);
+    for(let v=t;v!==s;v=E[prev[v]^1].to){E[prev[v]].flow+=f;E[prev[v]^1].flow-=f;}
+    sent+=f;
+  }
+  return E.filter(e=>e.ref).map(e=>({ref:e.ref,flow:e.flow}));
+}
+function routeModel(reg, sev, dem, pen){
+  const idx={};let n=0;const id=k=>(k in idx)?idx[k]:(idx[k]=n++);
+  const s=id("S"),t=id("T"),edges=[];
+  Object.entries(NET.sources).forEach(([k,v])=>edges.push({u:s,v:id(k),cap:v,cost:0,kind:"supply"}));
+  Object.entries(NET.hubs).forEach(([k,v])=>edges.push({u:id(k+"_in"),v:id(k),cap:v,cost:0,kind:"hub"}));
+  const demand={};let total=0;
+  Object.entries(NET.camps).forEach(([k,v])=>{const d=v*NET.share[reg]*dem;demand[k]=d;total+=d;
+    edges.push({u:id(k),v:t,cap:d,cost:0,kind:"camp"});edges.push({u:s,v:id(k),cap:d,cost:pen,kind:"unmet",camp:k});});
+  NET.arcs.forEach(a=>{const [f,to,c,cap,vul]=a;const p=Math.min(1,NET.flood[vul][reg]*sev);
+    const dest = (to in NET.hubs)? id(to+"_in") : id(to);
+    edges.push({u:id(f),v:dest,cap:cap*(1-p),cost:c*NET.mult[reg],kind:"road",arc:a});});
+  const res=mcf(n,edges,s,t,total);
+  const flows={},unmet={};let trans=0,short=0;
+  res.forEach(r=>{if(r.ref.kind==="road"){flows[r.ref.arc[0]+">"+r.ref.arc[1]]=r.flow;trans+=r.flow*r.ref.cost;}
+    if(r.ref.kind==="unmet"){unmet[r.ref.camp]=r.flow;short+=r.flow;}});
+  return {flows,unmet,demand,total,trans,short,cost:trans+short*pen};
+}
+let RS={reg:"V",sev:1,dem:1,pen:500};
+function drawRoute(){
+  const r=routeModel(RS.reg,RS.sev,RS.dem,RS.pen), svg=$("netMap");svg.innerHTML="";
+  const defs=mk("defs",{},svg);
+  Object.entries(RISK).forEach(([k,c])=>{const m=mk("marker",{id:"ar"+k,viewBox:"0 0 10 10",refX:9,refY:5,markerWidth:5,markerHeight:5,orient:"auto"},defs);
+    mk("path",{d:"M0,0 L10,5 L0,10 z",fill:c},m);});
+  mk("rect",{x:0,y:0,width:900,height:760,fill:"#f8fbfc",rx:10},svg);
+  mk("path",{d:"M860,0 C840,200 880,420 900,560 L900,0 Z",fill:"#dcebf3"},svg);
+  NET.arcs.forEach(a=>{const [f,to,,,vul]=a;const [x1,y1]=POS[f],[x2,y2]=POS[to];
+    const fl=r.flows[f+">"+to]||0;const dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy),pad=20;
+    const ax=x1+dx*pad/L,ay=y1+dy*pad/L,bx=x2-dx*pad/L,by=y2-dy*pad/L;
+    const w=fl<1?1.4:2.2+fl/500;
+    mk("line",{x1:ax,y1:ay,x2:bx,y2:by,stroke:RISK[vul],"stroke-width":w,"stroke-opacity":fl<1?0.35:0.9,
+      "stroke-dasharray":fl<1?"4 5":"none","marker-end":fl<1?"":`url(#ar${vul})`},svg);
+    if(fl>=1){const tt=({"Sholinganallur>Velachery":.3,"Chengalpattu>Sholinganallur":.75,"Sholinganallur>Pallikaranai":.35})[f+">"+to]||.5;
+      const tx=mk("text",{x:ax+(bx-ax)*tt,y:ay+(by-ay)*tt-7,"text-anchor":"middle","font-size":15,"font-weight":700,fill:"#10212f",
+      stroke:"#f8fbfc","stroke-width":5,"paint-order":"stroke"},svg);tx.textContent=fmt(fl);}
+  });
+  Object.entries(POS).forEach(([k,[x,y]])=>{
+    if(k in NET.sources){mk("rect",{x:x-13,y:y-13,width:26,height:26,fill:"#0b2441",rx:3},svg);}
+    else if(k in NET.hubs){mk("rect",{x:x-12,y:y-12,width:24,height:24,fill:"#0d6e78",transform:`rotate(45 ${x} ${y})`},svg);}
+    else{const sh=r.unmet[k]||0;mk("circle",{cx:x,cy:y,r:15,fill:sh>0.5?"#c23b2e":"#fff",stroke:sh>0.5?"#c23b2e":"#10212f","stroke-width":2.5},svg);
+      if(sh>0.5){mk("text",{x:x+(LBL[k]==="left"?-22:22),y:y+28,"text-anchor":LBL[k]==="left"?"end":"start","font-size":18,"font-weight":800,fill:"#c23b2e",stroke:"#f8fbfc","stroke-width":4,"paint-order":"stroke"},svg).textContent=fmt(sh)+" short";}}
+    const side=LBL[k]||"above";const o={above:[0,-24,"middle"],below:[0,40,"middle"],left:[-22,6,"end"],right:[22,6,"start"]}[side];
+    const lt=mk("text",{x:x+o[0],y:y+o[1],"text-anchor":o[2],"font-size":19,"font-weight":700,fill:"#10212f",stroke:"#f8fbfc","stroke-width":5,"paint-order":"stroke"},svg);lt.textContent=k;
+  });
+  $("kDem").textContent=fmt(r.total);$("kShort").textContent=fmt(r.short);$("kTrans").textContent=rs(r.trans);$("kTot").textContent=rs(r.cost);
+  $("campTable").innerHTML="<tr><th>Camp</th><th>Needed</th><th>Delivered</th><th>Short</th></tr>"+
+    Object.keys(NET.camps).map(c=>{const d=r.demand[c],u=r.unmet[c]||0;return `<tr><td>${c}</td><td>${fmt(d)}</td><td>${fmt(d-u)}</td><td class="${u>0.5?'short':''}">${fmt(u)}</td></tr>`}).join("");
+}
+seg($("regSeg"),S.map(s=>({v:s,label:SN[s]})),"V",v=>{RS.reg=v;drawRoute()});
+[["sev","sevV",v=>v+"%",v=>RS.sev=v/100],["dem","demV",v=>v+"%",v=>RS.dem=v/100],["pen","penV",v=>"₹"+v,v=>RS.pen=+v]].forEach(([i,o,l,set])=>{
+  const el=$(i);const up=()=>{$(o).textContent=l(el.value);set(+el.value);drawRoute()};el.oninput=up;$(o).textContent=l(el.value);});
+drawRoute();
+
+/* ---------------- 3. Stochastic ---------------- */
+function drawStock(td){
+  const p=DATA.policy[td];const st={...p.camp_stock};
+  const items=Object.entries(st).filter(([k,v])=>v>0.5);
+  const hubs=Object.values(p.hub_stock).reduce((a,b)=>a+b,0);
+  const mx=1500;
+  $("stockBars").innerHTML=(items.length?items:[["(nothing)",0]]).map(([k,v])=>`<div class="barrow"><span>${k}</span><div><div class="bar" style="width:${Math.max(4,v/mx*100)}%;background:#0d6e78">${fmt(v)} kits</div></div></div>`).join("")
+    +`<div class="barrow"><span>All hubs</span><div><div class="bar" style="width:4%;background:#9aa8b3"></div><span class="note"> ${fmt(hubs)} kits: hubs stay reachable tomorrow</span></div></div>`;
+  const rows=[["Stochastic plan",p.RP,"#0d6e78"],["No stocking (= 'average day' plan)",p.NONE,"#c23b2e"],["Perfect forecast",p.WS,"#9aa8b3"]];
+  const cm=Math.max(...rows.map(r=>r[1]));
+  $("costBars").innerHTML=rows.map(([l,v,c])=>`<div class="barrow"><span>${l}</span><div><div class="bar" style="width:${v/cm*100}%;background:${c}">${rs(v)}</div></div></div>`).join("");
+  $("kVSS").textContent=rs(p.VSS);$("kEVPI").textContent=rs(p.EVPI);
+  const notes={M:"On a moderate day there is only a 6.5% chance of very heavy rain tomorrow, yet stocking the two road-bound camps still pays off.",
+    H:"<b>This is the day to act.</b> Stock the most kits now: Mudichur is filled to its 1,500-kit storage limit.",
+    V:"Once rain is already very heavy, the road into Mudichur is mostly under water today too, so fewer kits can be moved in. Acting a day earlier is better."};
+  $("stNote").innerHTML=notes[td];
+}
+seg($("stSeg"),["M","H","V"].map(s=>({v:s,label:SN[s]})),"M",drawStock);drawStock("M");
+function drawSens(){const i=+$("sp").value,r=DATA.sens[i];$("spV").textContent="₹"+fmt(r.penalty);
+  $("sensTable").innerHTML="<tr><th>Penalty per missed kit</th><th>Kits stocked</th><th>Expected cost</th><th>VSS</th><th>Short if very heavy</th></tr>"+
+  DATA.sens.map((s,k)=>`<tr style="${k===i?'background:#e3f1f2;font-weight:700':''}"><td>${rs(s.penalty)}</td><td>${fmt(s.prepos_total)}</td><td>${rs(s.RP)}</td><td>${rs(s.VSS)}</td><td>${fmt(s.unmet_V)}</td></tr>`).join("");}
+$("sp").oninput=drawSens;drawSens();
+
+/* ---------------- 4. Evacuation ---------------- */
+const EV=DATA.evac;
+const EPOS={"Mudichur":[80,230],"Varadharajapuram":[250,250],"Tambaram West":[230,110],"Tambaram East":[400,180],
+  "Perungalathur":[310,390],"Chromepet":[420,55],"Vandalur":[560,360],"Pallavaram":[590,55]};
+let ES={reg:"V",pump:null};
+function evGraph(){return EV.arcs.map(([f,t,km,v,cap])=>{const vv=(ES.pump===f+">"+t)?"low":v;const r=1-NET.flood[vv][ES.reg];
+  return {f,t,km,v:vv,orig:v,cap,r,w:-Math.log(Math.max(r,1e-9)),ecap:cap*r};});}
+function dijk(G,wkey){const nodes=Object.keys(EPOS);const d={},p={};nodes.forEach(n=>d[n]=Infinity);d["Mudichur"]=0;const Q=new Set(nodes);
+  while(Q.size){let u=null;Q.forEach(n=>{if(u===null||d[n]<d[u])u=n});Q.delete(u);G.filter(e=>e.f===u).forEach(e=>{if(d[u]+e[wkey]<d[e.t]-1e-12){d[e.t]=d[u]+e[wkey];p[e.t]=e;}});}
+  const best=EV.shelters.reduce((a,b)=>d[a]<=d[b]?a:b);const path=[];let n=best;while(p[n]){path.unshift(p[n]);n=p[n].f;}return path;}
+function maxflow(G){const nodes=[...Object.keys(EPOS),"SAFE"];const cap={};const key=(a,b)=>a+"|"+b;
+  G.forEach(e=>cap[key(e.f,e.t)]=(cap[key(e.f,e.t)]||0)+e.ecap);EV.shelters.forEach(s=>cap[key(s,"SAFE")]=1e9);
+  let total=0;while(true){const prev={Mudichur:null};const q=["Mudichur"];
+    while(q.length&&!("SAFE" in prev)){const u=q.shift();nodes.forEach(v=>{if(!(v in prev)&&(cap[key(u,v)]||0)>1e-9){prev[v]=u;q.push(v);}});}
+    if(!("SAFE" in prev))break;let f=Infinity;for(let v="SAFE";prev[v]!==null;v=prev[v])f=Math.min(f,cap[key(prev[v],v)]);
+    for(let v="SAFE";prev[v]!==null;v=prev[v]){cap[key(prev[v],v)]-=f;cap[key(v,prev[v])]=(cap[key(v,prev[v])]||0)+f;}total+=f;}
+  return total;}
+function drawEvac(){
+  const G=evGraph(),rel=dijk(G,"w"),sh=dijk(G,"km"),flow=maxflow(G),svg=$("evMap");svg.innerHTML="";
+  mk("rect",{x:0,y:0,width:660,height:440,fill:"#f8fbfc",rx:10},svg);
+  const on=(path,e)=>path.some(p=>p.f===e.f&&p.t===e.t);
+  G.forEach(e=>{const [x1,y1]=EPOS[e.f],[x2,y2]=EPOS[e.t];
+    if(on(rel,e))mk("line",{x1,y1,x2,y2,stroke:"#0d6e78","stroke-width":14,"stroke-opacity":.28,"stroke-linecap":"round"},svg);
+    const ln=mk("line",{x1,y1,x2,y2,stroke:RISK[e.v],"stroke-width":5,class:"road"},svg);
+    if(on(sh,e))mk("line",{x1,y1,x2,y2,stroke:"#111","stroke-width":2,"stroke-dasharray":"6 5"},svg);
+    const hit=mk("line",{x1,y1,x2,y2,stroke:"transparent","stroke-width":22,class:"road"},svg);
+    hit.onclick=()=>{ES.pump=(e.orig==="low")?ES.pump:(e.f+">"+e.t);drawEvac();};
+    mk("title",{},hit).textContent=`${e.f} to ${e.t}: ${e.km} km, ${(e.r*100).toFixed(0)}% passable${e.orig==="low"?"":" (click to pump)"}`;
+    const mx=(x1+x2)/2,my=(y1+y2)/2;
+    mk("text",{x:mx,y:my-8,"text-anchor":"middle","font-size":11,fill:"#10212f",stroke:"#f8fbfc","stroke-width":3,"paint-order":"stroke"},svg).textContent=`${e.km} km · ${(e.r*100).toFixed(0)}%`;
+    if(ES.pump===e.f+">"+e.t)mk("text",{x:mx,y:my+18,"text-anchor":"middle","font-size":13,"font-weight":800,fill:"#0d6e78",stroke:"#f8fbfc","stroke-width":3,"paint-order":"stroke"},svg).textContent="PUMP";
+  });
+  Object.entries(EPOS).forEach(([k,[x,y]])=>{const shel=EV.shelters.includes(k);
+    if(shel)mk("text",{x,y:y+8,"text-anchor":"middle","font-size":28,fill:"#0d6e78"},svg).textContent="★";
+    else mk("circle",{cx:x,cy:y,r:k==="Mudichur"?11:8,fill:k==="Mudichur"?"#c23b2e":"#fff",stroke:"#10212f","stroke-width":2},svg);
+    mk("text",{x:x+(k==="Mudichur"?-6:0),y:y+(y>300||k==="Varadharajapuram"?32:-18),"text-anchor":k==="Mudichur"?"start":"middle","font-size":14,"font-weight":600,fill:"#10212f",stroke:"#f8fbfc","stroke-width":4,"paint-order":"stroke"},svg).textContent=k+(shel?" (shelter)":"");});
+  const st=p=>({km:p.reduce((a,e)=>a+e.km,0),r:p.reduce((a,e)=>a*e.r,1),names:["Mudichur",...p.map(e=>e.t)].join(" → ")});
+  const A=st(rel),B=st(sh);
+  $("evTable").innerHTML=`<tr><th>Route</th><th>km</th><th>Gets through</th></tr>
+    <tr><td><b>Safest</b><br><span class="note">${A.names}</span></td><td>${A.km.toFixed(1)}</td><td><b>${(A.r*100).toFixed(1)}%</b></td></tr>
+    <tr><td><b>Shortest</b><br><span class="note">${B.names}</span></td><td>${B.km.toFixed(1)}</td><td>${(B.r*100).toFixed(1)}%</td></tr>`;
+  $("kFlow").textContent=fmt(flow);$("kPump").textContent=ES.pump?ES.pump.replace(">"," → "):"none";
+  const base=maxflow(EV.arcs.map(([f,t,km,v,cap])=>({f,t,km,v,cap,ecap:cap*(1-NET.flood[v][ES.reg])})));
+  $("evNote").innerHTML=ES.pump?`The pump changes evacuation capacity by <b>${fmt(flow-base)}</b> vehicles/hour. Only roads leaving Mudichur (the bottleneck) give a gain.`
+    :`The bottleneck is the three roads leaving Mudichur. Click <b>Mudichur → Varadharajapuram</b> to see the biggest gain from one pump.`;
+}
+seg($("evSeg"),["H","V"].map(s=>({v:s,label:SN[s]})),"V",v=>{ES.reg=v;drawEvac()});
+$("clearPump").onclick=()=>{ES.pump=null;drawEvac()};drawEvac();
+</script>
+</body>
+</html>
